@@ -103,6 +103,4 @@
   </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
-<script>
-</script>
 </html>
