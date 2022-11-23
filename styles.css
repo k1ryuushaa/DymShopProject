@@ -1,0 +1,766 @@
+*{
+    font-family: Century Gothic;
+    box-sizing: border-box;
+}
+button{
+    cursor: pointer;
+}
+body,html{
+    margin: 0px;
+    height: 100%;
+}
+.navbar{
+    height: 70px;
+    /* background: linear-gradient(to bottom,#f30876,rgba(255, 255, 255, 0)); */
+    border-bottom: 1px solid black;
+    box-shadow: 0 0 15px 0px black;
+    width: 100%;
+}
+.navbar_panel{
+    margin:18px;
+    position: absolute;
+    right: 10px;
+}
+.navbar b{
+    margin: 9px 20px;
+    font-size: 40px;
+    font-family: Berlin Sans FB;
+    float: left;
+}
+.navbar_panel #catalogButton{
+    font-size: 20px;
+    margin-top: 2.5px;
+    background: transparent;
+    border:2px solid black;
+    border-radius: 10px 0px 0px 10px;
+}
+.navbar_panel #catalogButton:hover{
+    background: gold;
+    box-shadow: 0 -200px 100px -120px crimson inset;
+    animation: background 3s infinite alternate;
+}
+@keyframes background {
+    0%{
+        background: transparent;
+        box-shadow: 0 0 100px -100px rgb(242, 0, 173) inset;
+    }
+    50% {
+      background: skyblue;
+      box-shadow: 0 -200px 100px -100px rgb(3, 247, 121) inset;
+    }
+  }
+.navbar_panel .searchBox{
+    font-size: 20px;
+    margin-top: 2.5px;
+    border-radius: 10px 0px 0px 10px;
+    margin-right: 0px;
+    border:2px solid black;
+    background:transparent;
+}
+.drop_menu .searchBox{
+    font-size: 20px;
+    border-radius: 10px 0px 0px 10px;
+    margin-bottom: 0px;
+    height: 40px;
+    border:2px solid black;
+    background:transparent;
+}
+.navbar_panel .searchBox:focus{
+    outline: none !important;
+    border:3px solid rgb(187, 5, 90);
+    box-shadow:-1px 0 5px 0.5px rgb(187, 5, 90);
+}
+.drop_menu .searchBox:focus{
+    outline: none !important;
+    border:3px solid rgb(187, 5, 90);
+    box-shadow:-1px 0 5px 0.5px rgb(187, 5, 90);
+}
+.navbar_panel #searchButton{
+    background: transparent;
+    margin-left: 0px;
+    font-size: 20px;
+    margin-top: 2.5px;
+    border:2px solid black;
+    border-radius: 0px 10px 10px 0px;
+}
+.drop_menu #searchButton{
+    background: transparent;
+    margin-left: 0px;
+    font-size: 20px;
+    height: 46px;
+    width: 100px;
+    border:2px solid black;
+    border-radius: 0px 10px 10px 0px;
+}
+.navbar_panel #searchButton:hover{
+    border:3px solid rgb(5, 132, 187);
+    box-shadow:-1px 0 5px 0.5px rgb(5, 132, 187);
+    color: rgb(5, 132, 187);
+}
+.drop_menu #searchButton:hover{
+    border:3px solid rgb(5, 132, 187);
+    box-shadow:-1px 0 5px 0.5px rgb(5, 132, 187);
+    color: rgb(5, 132, 187);
+}
+.navbar_panel #AuthButton{
+    background: transparent;
+    margin-left: 0px;
+    font-size: 20px;
+    margin-top: 2.5px;
+    border:2px solid black;
+    border-radius: 10px;
+}
+.navbar #menuBtn{
+    background: transparent;
+    margin-left: 0px;
+    font-size: 50px;
+    margin-top: 3px;
+    border:0px;
+    float: right;
+    position: absolute;
+    right: 10px;
+    visibility: hidden;
+}
+.navbar_panel #KorzinaButton{
+    background: transparent;
+    margin-left: 0px;
+    font-size: 20px;
+    margin-top: 2.5px;
+    border:2px solid black;
+    border-radius: 0px 10px 10px 0px;
+}
+@media only screen and (max-width: 820px) {
+    .navbar_panel {
+        visibility: hidden;
+        }
+    .navbar #menuBtn{
+        visibility: visible;
+    }
+}
+.drop_menu{
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-150%);
+}
+.drop_menu button{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: 0px;
+    font-size: 25px;
+}
+.drop_menu button:hover{
+    text-shadow: rgb(5, 132, 187) 0px 0px 10px;
+}
+@keyframes dropMenuBtnAnimation{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(-90deg);}
+}
+@keyframes dropMenuAnimation{
+    0% {transform: translateY(-150%);}
+    100% {transform: translateY(0);}
+}
+@keyframes navbarHeightAnimation{
+    0%{height: 70px;}
+    100%{height: 240px;}
+}
+.modall{
+    height: 200px;
+}
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5px;
+    margin: 10px;
+}
+.product{
+    border: 0px solid rgb(104, 96, 96);
+    box-shadow: 0 0 7px 1px rgb(104, 96, 96);
+    border-radius: 30px;
+    overflow: hidden;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+    display: grid;
+    min-width: 200px;
+    place-self: center;
+    margin: 10px;
+}
+.categories{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 5px;
+  margin: 10px;
+}
+.category{
+  transition: .5s ease-in-out;
+  border: 0px solid rgb(104, 96, 96);
+  box-shadow: 0 0 7px 1px rgb(104, 96, 96);
+  border-radius: 10px;
+  background: #ffec5f;
+  overflow: hidden;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+  display: grid;
+  min-width: 200px;
+  place-self: center;
+  height: 100px;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+  outline: 5px solid transparent;
+}
+.category:hover{
+  color: rgb(248, 9, 77);
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 5px;
+  font-size: 20px;
+}
+.product img{
+    height: 180px;
+    max-width: 180px;
+    place-self: center;
+}
+.carouselContainer {
+    height: 460px;
+    margin: 0;
+    display: grid;
+    grid-template-rows:450px 10px;
+    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 800px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+.item {
+  position: absolute;
+  box-shadow: 0 0 7px 1px rgb(104, 96, 96);
+  border-radius: 30px;
+  width: 600px;
+  height: 400px;
+  background-color: coral;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r)))
+    translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+.item:nth-of-type(1) {
+  --offset: 1;
+  background: url("vapelogo.png");
+  background-size: 100% 100%;
+}
+.item:nth-of-type(2) {
+  --offset: 2;
+  background-color: #ff70a6;
+}
+.item:nth-of-type(3) {
+  --offset: 3;
+  background-color: #ff9770;
+}
+.item:nth-of-type(4) {
+  --offset: 4;
+  background-color: #ffd670;
+}
+.item:nth-of-type(5) {
+  --offset: 5;
+  background-color: #e9ff70;
+}
+
+.carouselContainer input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+.carouselContainer input:nth-of-type(1):checked ~ main#carousel {
+  --position: 1;
+}
+
+.carouselContainer input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+.carouselContainer input:nth-of-type(2):checked ~ main#carousel {
+  --position: 2;
+}
+
+.carouselContainer input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+.carouselContainer input:nth-of-type(3):checked ~ main#carousel {
+  --position: 3;
+}
+
+.carouselContainer input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+.carouselContainer input:nth-of-type(4):checked ~ main#carousel {
+  --position: 4;
+}
+
+.carouselContainer input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+.carouselContainer input:nth-of-type(5):checked ~ main#carousel {
+  --position: 5;
+}
+@keyframes appear {
+  0%{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.blurred { filter: blur(7px); transition: all 2s;}
+.modal{
+  animation: appear 350ms ease-in 1;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.modal .overlay{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.2;
+  z-index: 0;
+}
+.modal .auth-modal{
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px black;
+  background-color: white;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  font-size: 20px;
+  max-width: 700px;
+  min-width: 400px;
+}
+.modal .auth-modal #AuthBtn{
+  transition: .5s ease-in-out;
+  font-size: 20px;
+  border-radius: 10px;
+  outline: 5px solid transparent;
+  background-color: transparent;
+}
+.modal .auth-modal #AuthBtn:hover{
+  transition: .5s ease-in-out;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: transparent;
+  color: rgb(248, 9, 77);
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 2px;
+  font-size: 25px;
+}
+.modal .auth-modal input{
+  transition: .5s ease-in-out;
+  font-size: 20px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 2px;
+  outline: 2px solid transparent;
+  background-color: transparent;
+}
+.modal .auth-modal input:focus{
+  transition: .5s ease-in-out;
+  border-radius: 10px;
+  margin: 2px;
+  background-color: transparent;
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 1px;
+}
+.modal .auth-modal table{
+  margin: 15px;
+  text-align: end;
+}
+.modal .auth-modal span{
+  margin:10px;
+  text-align: center;
+}
+#RegSpan{
+  margin: 0px;
+  color:#ff70a6;
+  cursor: pointer;
+}
+#closeBtn{
+  border:0px;
+  font-size: 20px;
+  background: transparent;
+  position: absolute;
+  top:10px;
+  cursor: pointer;
+  right:20px;
+  transition: .5s ease-in-out;
+}
+#closeBtn:hover{
+  transform: rotate(-90deg);
+  font-weight: bold;
+}
+
+.modal .reg-modal{
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px black;
+  background-color: white;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  font-size: 20px;
+  max-width: 700px;
+  min-width: 400px;
+}
+.modal .reg-modal #AuthBtn{
+  transition: .5s ease-in-out;
+  font-size: 20px;
+  border-radius: 10px;
+  outline: 5px solid transparent;
+  background-color: transparent;
+}
+.modal .reg-modal #AuthBtn:hover{
+  transition: .5s ease-in-out;
+  border-radius: 10px;
+  margin: 10px;
+  background-color: transparent;
+  color: rgb(248, 9, 77);
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 2px;
+  font-size: 25px;
+}
+.modal .reg-modal input{
+  transition: .5s ease-in-out;
+  font-size: 20px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 2px;
+  outline: 2px solid transparent;
+  background-color: transparent;
+}
+.modal .reg-modal input:focus{
+  transition: .5s ease-in-out;
+  border-radius: 10px;
+  margin: 2px;
+  background-color: transparent;
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 1px;
+}
+.modal .reg-modal table{
+  margin: 15px;
+  text-align: start;
+}
+.modal .reg-modal span{
+  margin:10px;
+  text-align: center;
+}
+#AuthSpan{
+  margin: 0px;
+  color:#ff70a6;
+  cursor: pointer;
+}
+
+.modal .notifi-modal{
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 5px black;
+  background-color: white;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  font-size: 20px;
+  max-width: 700px;
+  min-width: 450px;
+}
+.modal .notifi-modal button{
+  transition: .5s ease-in-out;
+  font-size: 20px;
+  border-radius: 10px;
+  outline: 5px solid transparent;
+  background-color: transparent;
+}
+.modal .notifi-modal button:hover{
+  border-radius: 10px;
+  background-color: transparent;
+  color: rgb(248, 9, 77);
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 2px;
+  font-size: 25px;
+}
+.modal .notifi-modal table{
+  margin: 15px;
+  text-align: start;
+}
+.modal .notifi-modal span{
+  margin:10px;
+  font-size: 15px;
+  text-align: justify;
+}
+.privateKab{
+  margin: 20px;
+  padding:20px;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0;
+  display: inline-block;
+  
+}
+#lkPanel{
+  box-shadow: 0 0 12px -6px black;
+  margin: 50px 0px 10px 0px;
+  padding: 10px;
+  height: auto;
+  min-width: 850px;
+  border-radius: 10px;
+  width: auto;
+  text-align: left;
+}
+.privateKab b{
+  margin: 20px;
+  width: 100%;;
+  font-size: 25px;
+}
+#lkPanel label{
+  margin:20px;
+  padding: 0px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 5px solid transparent;
+  transition: .5s ease;
+}
+#lkPanel label:hover{
+  background: rgb(239, 239, 239);
+  color: rgb(248, 9, 77);
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 2px;
+  font-size: 20px;
+  padding: 5px;
+}
+#lkPanel input[type="radio"]:checked + label {
+  background: rgb(239, 239, 239);
+  color: rgb(248, 188, 9);
+  outline: 3px solid rgb(248, 188, 9);
+  outline-offset: 2px;
+  font-size: 20px;
+  padding: 5px;
+}
+.MyOrders form{
+  margin:20px 0px 20px 0px;
+  padding: 10px;
+  border-radius: 10px;
+  width: auto;
+  text-align: left;
+  min-width: 500px;
+}
+.MyOrders label{
+  margin:15px;
+  padding: 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 5px solid transparent;
+  transition: .5s ease;
+}
+.MyOrders label:hover{
+  background: rgb(239, 239, 239);
+  color: rgb(248, 9, 77);
+  outline: 3px solid rgb(248, 9, 77);
+  outline-offset: 2px;
+  padding: 5px;
+}
+#lkPanel input[type="radio"] {
+  display: none;
+}
+.MyOrders input[type="radio"] {
+  display: none;
+}
+.MyOrders input[type="radio"]:checked + label {
+  background: rgb(239, 239, 239);
+  color: rgb(248, 188, 9);
+  outline: 3px solid rgb(248, 188, 9);
+  outline-offset: 2px;
+  padding: 5px;
+}
+.item-info{
+  margin: 20px;
+  padding:20px;
+  width: 95%;
+  height: 95%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3,auto);
+}
+.item-info .box1
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  text-align: center;
+}
+.item-info .box2
+{
+  margin: 10px;
+  text-align: center;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.item-info .box3
+{
+  margin: 10px;
+  height: 250px;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  background-color: #dd52c8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.180);
+  border-radius: 20px;
+}
+.item-info .box4
+{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  height:auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.180);
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+.item-info h1{
+  font-size: 20px;
+  margin: 0px;
+}
+.item-info img{
+  height: 250px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.180);
+  border-radius: 20px;
+}
+.box3{
+  text-align: center;
+  align-items: center;
+  display: inline-block;
+  padding: 10%;
+}
+.box3 b{
+  margin: 10px;
+  font-size: 40px;
+  color: white;
+}
+.box3 button{
+  width: 90%;
+  margin: 5px;
+  background: transparent;
+  border: 3px solid white;
+  border-radius: 20px;
+  padding: 5px;
+  font-size: 20px;
+  color: white;
+  outline: 5px solid transparent;
+  transition: .3s ease-in-out;
+}
+.box3 button:hover{
+  outline: 5px solid rgb(253, 251, 251);
+  outline-offset: 3px;
+}
+.item-info #closeBtnItemInfo{
+  border:0px;
+  font-size: 20px;
+  cursor: pointer;
+  background: transparent;
+  position: absolute;
+  left: 93%;
+  transition: .5s ease-in-out;
+}
+#closeBtnItemInfo:hover{
+  transform: rotate(-90deg);
+  font-weight: bold;
+}
+.item-info .box3 #Count{
+  border-radius: 40px;
+  border: 0px;
+  font-size: 20px;
+  margin: 10px;
+  width: 90%;
+  padding: 5px;
+  text-align: center;
+  outline: 5px solid transparent;
+  transition: .3s ease-in-out;
+}
+.item-info .box3 #Count:focus{
+  outline: 5px solid rgb(253, 251, 251);
+  outline-offset: 3px;
+}
+#notification{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 60%;
+  height: 70px;
+  border-radius: 20px;
+  background: #20ef54;
+  font-size: 20px;
+  text-align:center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  animation: notifianimate 1s forwards;
+}
+@keyframes notifianimate {
+  0%{
+    opacity: 0;
+    width: 0%;
+  }
+}
