@@ -26,7 +26,7 @@
     </div>
   </div>
   <div class="content">
-  <div class="modal">
+  <div class="modal" style="display:none;">
     <div class="notifi-modal">
         <button id="closeBtn">✕</button>
         <b style="text-align: center;margin: 20px 0 0 0;">Для доступа к сайту необходимо подтвердить возраст</b>
@@ -46,23 +46,6 @@
     </div>
     <div class="overlay"></div>
   </div>
-  <div class="item-info" style="display:none">
-    <div class="box1">
-        <div id="closeBtnItemInfo">✕</div>
-        <h1 id="infoPrdName"><?php echo $prod['ProductName'];?></h1>
-    </div>
-    <div class="box2">
-        <img id="infoPrdPhoto" src="PROJPIC/<?php echo $prod['ProductPhoto'];?>">
-    </div>
-    <div class="box3">
-        <b id="infoPrdCost"><?php echo $prod['ProductCost'];?> р.</b>
-        <input type="text" name="count" id="Count" placeholder=
-        "Количество">
-        <button>Добавить в корзину</button>
-    </div>
-    <div class="box4" id="infoPrdDesc"><?php echo $prod['ProductDescription'];?>
-    </div>
-</div>
     <!-- <div id="notification">
         ✔Добавлено успешно
     </div> -->
@@ -92,11 +75,11 @@
         <?php $query = mysqli_query($link,"Select Article,ProductPhoto,ProductCost,ProductName from products");
         while($rows=mysqli_fetch_array($query)){?>
         <div class="product">
-        <button style="background:transparent;border:0px;width:100%;height:100%;" type="submit" name="productArticle">
+        <button style="background:transparent;border:0px;width:100%;height:100%;" type="submit" name="product" value="<?php echo $rows['Article'];?>">
         <img src="PROJPIC/<?php echo $rows['ProductPhoto'];?>">
         <b class="productName" style="font-size: 20px;"><?php echo $rows['ProductName'];?></b>
         <span class="productCost" style="font-size: 20px;"><?php echo $rows['ProductCost'];?> руб.</span>
-      </div>
+        </div>
         </button>
         <?php };?>
     </div>

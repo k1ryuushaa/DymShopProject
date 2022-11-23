@@ -272,7 +272,7 @@ main#carousel {
 
 .item:nth-of-type(1) {
   --offset: 1;
-  background: url("vapelogo.png");
+  background: url("PROJPIC/vapelogo.png");
   background-size: 100% 100%;
 }
 .item:nth-of-type(2) {
@@ -634,6 +634,8 @@ main#carousel {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3,auto);
+  background: #f6fefff7;
+  z-index: 2;
 }
 .item-info .box1
 {
