@@ -8,23 +8,8 @@
   </head>
 <body>
   <?php include('connection.php');?>
-  <div class="navbar">
-    <b>Dymshop</b>
-    <div class="navbar_panel">
-    <button id="catalogButton">Каталог</button><button id="KorzinaButton">Корзина</button>
-    <input type="text" class="searchBox"><button id="searchButton">Искать</button>
-    <button id="AuthButton">Войти</button>
-    </div>
-    <div class="menu_button">
-      <button id="menuBtn" onclick="dropMenu()">≡</button>
-    </div>
-    <div class="drop_menu" id="dropmenu">
-      <input type="text" class="searchBox"><button id="searchButton">Искать</button>
-      <button>Каталог</button>
-      <button>Корзина</button>
-      <button>Войти</button>
-    </div>
-  </div>
+  <?php require 'blocks/header.php'?>
+  <div id="formodal"></div>
   <div class="content">
   <div class="modal" style="display:none;">
     <div class="notifi-modal">
@@ -46,9 +31,6 @@
     </div>
     <div class="overlay"></div>
   </div>
-    <!-- <div id="notification">
-        ✔Добавлено успешно
-    </div> -->
     <div class="carouselContainer">
         <input type="radio" name="position" checked="true" />
         <input type="radio" name="position" />
@@ -71,19 +53,26 @@
       </div>
       <?php };?>
     </div>
-    <div class="products">
+    <h1 style="text-align:center;margin:10px;">Все товары</h1>
+    <form class="products" method="post">
         <?php $query = mysqli_query($link,"Select Article,ProductPhoto,ProductCost,ProductName from products");
         while($rows=mysqli_fetch_array($query)){?>
-        <div class="product">
-        <button style="background:transparent;border:0px;width:100%;height:100%;" type="submit" name="product" value="<?php echo $rows['Article'];?>">
+        <button style="background:transparent;border:0px solid;" name="product" type="submit" onclick="productShow();return false;" class="product" value="<?php echo $rows['Article'];?>">
         <img src="PROJPIC/<?php echo $rows['ProductPhoto'];?>">
         <b class="productName" style="font-size: 20px;"><?php echo $rows['ProductName'];?></b>
         <span class="productCost" style="font-size: 20px;"><?php echo $rows['ProductCost'];?> руб.</span>
-        </div>
         </button>
         <?php };?>
-    </div>
+        </form>
   </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+};
+  function productShow(){
+    document.getElementById("formodal").innerHTML="<?php require 'modals/product_info.php';?>";
+  }
+  </script>
 </html>

@@ -1,0 +1,17 @@
+<div class="navbar">
+    <b>Dymshop</b>
+    <div class="navbar_panel">
+    <button id="catalogButton">Каталог</button><button id="KorzinaButton">Корзина</button>
+    <input type="text" class="searchBox"><button id="searchButton">Искать</button>
+    <button id="AuthButton">Войти</button>
+    </div>
+    <div class="menu_button">
+      <button id="menuBtn" onclick="dropMenu()">≡</button>
+    </div>
+    <div class="drop_menu" id="dropmenu">
+      <input type="text" class="searchBox"><button id="searchButton">Искать</button>
+      <button>Каталог</button>
+      <button>Корзина</button>
+      <button>Войти</button>
+    </div>
+</div>

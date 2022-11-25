@@ -339,7 +339,7 @@ main#carousel {
 }
 .blurred { filter: blur(7px); transition: all 2s;}
 .modal{
-  animation: appear 350ms ease-in 1;
+  animation: appear 350ms ease-in forwards;
   position: fixed;
   top:0;
   left:0;

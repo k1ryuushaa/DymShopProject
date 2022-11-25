@@ -39,6 +39,9 @@ document.querySelector("#mne18").onclick=function(){
 document.querySelector("#mnenet18").onclick=function closeWindow(){
   document.location.href="/";
 };
+document.querySelector("#closeBtnItemInfo").onclick=function closeWindow(){
+  document.getElementsByClassName("modal").style.display="none";
+};
 document.querySelector("#closeBtn").onclick=function closeWindow(){
   document.location.href="/";
 };
