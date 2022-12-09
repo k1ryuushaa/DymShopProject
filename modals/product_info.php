@@ -6,7 +6,7 @@ $product=mysqli_fetch_row($productquery);
 echo '<div class=\'modal\'>';
 echo ' <div class=\'item-info\'>';
 echo    '<div class=\'box1\'>';
-echo        '<div id=\'closeBtnItemInfo\'>✕</div>';
+echo        '<div id=\'closeBtnItemInfo\' onclick=\'closeModal();\'>✕</div>';
 echo        '<h1 id=\'infoPrdName\'>'.$product[3].'</h1>';
 echo    '</div>';
 echo    '<div class=\'box2\'>';

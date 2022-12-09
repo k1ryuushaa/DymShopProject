@@ -8,7 +8,7 @@
   </head>
 <body>
   <?php include('connection.php');?>
-  <?php require 'blocks/header.php'?>
+  <?php require 'blocks/header.html'?>
   <div id="formodal"></div>
   <div class="content">
   <div class="modal" style="display:none;">
@@ -20,8 +20,8 @@
             информации об основных потребительских свойствах и качественных характеристик табачной продукции 
             и аксессуарах для курения (ст.10 Закона «О защите прав Потребителя»). Лицам, не достигшим совершеннолетия, 
             пользование Сайтом запрещено (ст. 20 ФЗ №15 «Об охране здоровья граждан»).
-                Нажимая «Мне есть 18 лет», вы даете согласие на обработку персональных данных и соглашаетесь 
-                с политикой конфиденциальности</span>
+            Нажимая «Мне есть 18 лет», вы даете согласие на обработку персональных данных и соглашаетесь 
+            с политикой конфиденциальности</span>
         <table>
             <tr>
                 <td><button id="mne18" style="width: 100%;">Мне есть 18</button></td>
@@ -65,14 +65,36 @@
         <?php };?>
         </form>
   </div>
+
+  <div id="AuthModal" class="modal" style="display: none;">
+      <div class="auth-modal">
+          <button id="closeBtn">✕</button>
+          <b style="text-align: center;">Авторизация</b>
+          <table>
+              <tr>
+                  <td>Логин</td>
+                  <td><input type="text" name="login"></td>
+              </tr>
+              <tr>
+                  <td>Пароль</td>
+                  <td><input type="password" name="password"</td>
+              </tr>
+          </table>
+          <span>Ещё нет аккаунта? <span id="RegSpan">Зарегистрируйтесь прямо сейчас!</span></span>
+          <button id="AuthBtn">Войти</button>
+      </div>
+      <div class="overlay"></div>
+  </div>
+</div>
 </body>
 <script type="text/javascript" src="main.js"></script>
-<script>
+<!-- <script>
   if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 };
   function productShow(){
     document.getElementById("formodal").innerHTML="<?php require 'modals/product_info.php';?>";
   }
-  </script>
+  </script> -->
+  
 </html>
